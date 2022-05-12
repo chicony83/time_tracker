@@ -1,10 +1,10 @@
-package com.chico.time_tracker.ui.gallery
+package com.chico.time_tracker.ui.newEntry
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GalleryViewModel : ViewModel() {
+class NewEntryViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is gallery Fragment"
