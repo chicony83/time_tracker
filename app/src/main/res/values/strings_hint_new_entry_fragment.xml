@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hint_new_entry_fragment_money_per_hour_edit_text">25</string>
-    <string name="hint_new_entry_fragment_city_description_edit_text">Enter city</string>
+    <string name="hint_new_entry_fragment_address_description_edit_text">Enter address</string>
     <string name="hint_new_entry_fragment_description_edit_text">Add you description</string>
 
 </resources>

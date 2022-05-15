@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="date_text_view">Date</string>
-    <string name="start_of_work_text_view">Start</string>
-    <string name="end_of_work_text_view">End</string>
-    <string name="money_per_hour_text_view">Money per hour</string>
-    <string name="money_per_day_text_view">Money per day</string>
-    <string name="work_hours_in_day_text_view">Work hours in day</string>
-    <string name="city_description_text_view">City</string>
-    <string name="description_description_text_view">Description</string>
+    <string name="new_entry_fragment_date_text_view">Date</string>
+    <string name="new_entry_fragment_start_of_work_text_view">Start</string>
+    <string name="new_entry_fragment_end_of_work_text_view">End</string>
+    <string name="new_entry_fragment_money_per_hour_text_view">Money per hour</string>
+    <string name="new_entry_fragment_money_per_day_text_view">Money per day</string>
+    <string name="new_entry_fragment_work_hours_in_day_text_view">Work hours in day</string>
+    <string name="new_entry_fragment_address_description_text_view">Address</string>
+    <string name="new_entry_fragment_description_description_text_view">Description</string>
 </resources>
