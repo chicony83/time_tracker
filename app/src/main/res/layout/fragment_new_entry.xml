@@ -6,17 +6,200 @@
     android:layout_height="match_parent"
     tools:context=".ui.newEntry.NewEntryFragment">
 
-    <TextView
-        android:id="@+id/text_gallery"
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftGuidLine"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/centerGuidLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rightGuidLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.66" />
+
+    <TextView
+        android:id="@+id/moneyPerHourDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/money_per_hour_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/centerGuidLine"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:autofillHints="no"
+        android:id="@+id/moneyPerHourEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_new_entry_fragment_money_per_hour_edit_text"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="@id/moneyPerHourDescriptionTextView"
+        app:layout_constraintStart_toStartOf="@id/moneyPerHourDescriptionTextView"
+        app:layout_constraintTop_toBottomOf="@id/moneyPerHourDescriptionTextView"
+        tools:text="25" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierMoneyPerHour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="moneyPerHourEditText" />
+
+    <TextView
+        android:id="@+id/workDateDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date_text_view"
+        app:layout_constraintEnd_toEndOf="@id/leftGuidLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrierMoneyPerHour" />
+
+    <TextView
+        android:id="@+id/workDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@id/workDateDescriptionTextView"
+        app:layout_constraintStart_toStartOf="@id/workDateDescriptionTextView"
+        app:layout_constraintTop_toBottomOf="@id/workDateDescriptionTextView"
+        tools:text="16.05.2022" />
+
+    <TextView
+        android:id="@+id/startTimeDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_of_work_text_view"
+        app:layout_constraintEnd_toStartOf="@id/rightGuidLine"
+        app:layout_constraintStart_toStartOf="@id/leftGuidLine"
+        app:layout_constraintTop_toBottomOf="@id/barrierMoneyPerHour" />
+
+    <TextView
+        android:id="@+id/startTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@id/startTimeDescriptionTextView"
+        app:layout_constraintStart_toStartOf="@id/startTimeDescriptionTextView"
+        app:layout_constraintTop_toBottomOf="@id/startTimeDescriptionTextView"
+        tools:text="6.00" />
+
+    <TextView
+        android:id="@+id/endTimeDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/end_of_work_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/rightGuidLine"
+        app:layout_constraintTop_toBottomOf="@id/barrierMoneyPerHour" />
+
+    <TextView
+        android:id="@+id/endTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@id/endTimeDescriptionTextView"
+        app:layout_constraintStart_toStartOf="@id/endTimeDescriptionTextView"
+        app:layout_constraintTop_toBottomOf="@id/endTimeDescriptionTextView"
+        tools:text="18.00" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="workDateTextView,startTimeTextView,endTimeTextView" />
+
+    <TextView
+        android:id="@+id/workHoursInDayDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/work_hours_in_day_text_view"
+        app:layout_constraintEnd_toStartOf="@id/centerGuidLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrierDate" />
+
+    <TextView
+        android:id="@+id/workHoursInDayTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/workHoursInDayDescriptionTextView"
+        app:layout_constraintStart_toStartOf="@+id/workHoursInDayDescriptionTextView"
+        app:layout_constraintTop_toBottomOf="@+id/workHoursInDayDescriptionTextView"
+        tools:text="12" />
+
+    <TextView
+        android:id="@+id/moneyPerDayDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/money_per_day_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/centerGuidLine"
+        app:layout_constraintTop_toBottomOf="@id/barrierDate" />
+
+    <TextView
+        android:id="@+id/moneyPerDayTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/moneyPerDayDescriptionTextView"
+        app:layout_constraintStart_toStartOf="@id/moneyPerDayDescriptionTextView"
+        app:layout_constraintTop_toBottomOf="@id/moneyPerDayDescriptionTextView"
+        tools:text="300" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierMoneyPerDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="workHoursInDayTextView,moneyPerDayTextView" />
+
+    <TextView
+        android:id="@+id/cityDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/city_description_text_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/barrierMoneyPerDay" />
+
+    <EditText
+        android:autofillHints="no"
+        android:id="@+id/cityEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_new_entry_fragment_city_description_edit_text"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cityDescriptionTextView" />
+
+    <TextView
+        android:id="@+id/descriptionDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description_description_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cityEditText" />
+
+    <EditText
+        android:autofillHints="no"
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_new_entry_fragment_description_edit_text"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/descriptionDescriptionTextView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
