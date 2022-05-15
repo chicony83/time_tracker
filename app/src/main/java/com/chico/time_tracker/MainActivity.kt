@@ -1,6 +1,7 @@
 package com.chico.time_tracker
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -11,12 +12,17 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import com.chico.time_tracker.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-//    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+
+    private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,15 +36,34 @@ class MainActivity : AppCompatActivity() {
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                    .setAction("Action", null).show()
 //        }
-//        val drawerLayout: DrawerLayout = binding.drawerLayout
+        val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        navController = findNavController(R.id.nav_host_fragment_content_main)
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation)
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-//        appBarConfiguration = AppBarConfiguration(setOf(
-//                R.id.nav_home, R.id.nav_gallery), drawerLayout)
-//        setupActionBarWithNavController(navController, appBarConfiguration)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.nav_home_fragment, R.id.nav_new_entry_fragment
+            ), drawerLayout
+        )
+
+        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home_fragment -> {
+                    navController.navigate(R.id.nav_home_fragment)
+                }
+                R.id.nav_new_entry_fragment -> {
+                    navController.navigate(R.id.nav_new_entry_fragment)
+                }
+            }
+            true
+        }
+
     }
 
 //    override fun onCreateOptionsMenu(menu: Menu): Boolean {
