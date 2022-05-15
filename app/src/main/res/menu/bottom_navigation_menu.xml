@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_new_entry_fragment"
+        android:contentDescription="@string/content_description_bottom_navigation_menu_new_entry_item"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_add_box_24"
+        android:title="@string/bottom_navigation_menu_new_entry_item" />
+    <item
+        android:id="@+id/nav_home_fragment"
+        android:contentDescription="@string/content_description_bottom_navigation_menu_calendar_item"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_calendar_month_24"
+        android:title="@string/bottom_navigation_menu_calendar_item" />
+
+</menu>

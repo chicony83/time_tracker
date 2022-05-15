@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bottom_navigation_menu_new_entry_item">New entry</string>
+    <string name="bottom_navigation_menu_calendar_item">Calendar</string>
+</resources>

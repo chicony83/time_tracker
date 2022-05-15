@@ -3,4 +3,7 @@
     <string name="content_description_new_entry_fragment_money_per_hour_city_edit_text">money per hour</string>
     <string name="content_description_new_entry_fragment_city_edit_text">city</string>
     <string name="content_description_new_entry_fragment_description_edit_text">description of entry</string>
+
+    <string name="content_description_bottom_navigation_menu_new_entry_item">new_entry</string>
+    <string name="content_description_bottom_navigation_menu_calendar_item">calendar</string>
 </resources>
