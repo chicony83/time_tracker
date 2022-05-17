@@ -13,6 +13,13 @@ class NewEntryViewModel(
     private val app: Application
 ) : AndroidViewModel(app) {
 
+    private val spName: String = ConstantsSp.SP_NAME
+
+    private val sp = app.getSharedPreferences(spName,MODE_PRIVATE)
+    private val spEditor = sp.edit()
+    private val getSp = GetSP(sp)
+    private val setSP = SetSP(spEditor)
+
     fun chekWorkingTime(workingTime: WorkingTime): Boolean {
         return true
     }
@@ -22,11 +29,5 @@ class NewEntryViewModel(
         MessageLog.log("saved...")
     }
 
-    private val spName: String = ConstantsSp.SP_NAME
-
-    private val sp = app.getSharedPreferences(spName,MODE_PRIVATE)
-    private val spEditor = sp.edit()
-    private val getSp = GetSP(sp)
-    private val setSP = SetSP(spEditor)
 
 }
