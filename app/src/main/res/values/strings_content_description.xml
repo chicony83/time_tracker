@@ -6,4 +6,6 @@
 
     <string name="content_description_bottom_navigation_menu_new_entry_item">new_entry</string>
     <string name="content_description_bottom_navigation_menu_calendar_item">calendar</string>
+
+    <string name="content_description_new_entry_fragment_submit_button">submit button</string>
 </resources>

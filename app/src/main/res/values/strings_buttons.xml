@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="new_entry_fragment_submit_button">Submit</string>
+</resources>

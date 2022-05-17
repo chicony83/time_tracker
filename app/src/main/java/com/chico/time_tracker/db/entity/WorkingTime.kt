@@ -19,11 +19,11 @@ data class WorkingTime(
     @ColumnInfo(name = "money_per_day")
     val moneyPerDay:Int,
     @ColumnInfo(name = "address")
-    val address:String,
+    val address:String?,
     @ColumnInfo(name = "description")
-    val description:String,
+    val description:String?,
     @ColumnInfo(name = "coordinates")
-    val coordinates:String
+    val coordinates:String?
 ){
     @PrimaryKey(autoGenerate = true)
     var id:Long?=null
