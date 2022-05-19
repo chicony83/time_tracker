@@ -163,7 +163,7 @@
         app:constraint_referenced_ids="workHoursInDayTextView,moneyPerDayTextView" />
 
     <TextView
-        android:id="@+id/cityDescriptionTextView"
+        android:id="@+id/addressDescriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/new_entry_fragment_address_description_text_view"
@@ -173,14 +173,14 @@
 
     <EditText
         android:autofillHints="no"
-        android:id="@+id/cityEditText"
+        android:id="@+id/addressEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_new_entry_fragment_address_description_edit_text"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cityDescriptionTextView" />
+        app:layout_constraintTop_toBottomOf="@id/addressDescriptionTextView" />
 
     <TextView
         android:id="@+id/descriptionDescriptionTextView"
@@ -189,7 +189,7 @@
         android:text="@string/new_entry_fragment_description_description_text_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cityEditText" />
+        app:layout_constraintTop_toBottomOf="@id/addressEditText" />
 
     <EditText
         android:autofillHints="no"

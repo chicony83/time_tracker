@@ -7,7 +7,14 @@ class SetSP(
     private val spEditor: SharedPreferences.Editor
 ) {
 
-    fun setSp(
+    fun putToSp(
+        args: String,string: String
+    ){
+        spEditor.putString(args,string)
+        spCommit()
+    }
+
+    fun putToSp(
         args:String,
         int: Int
     ){
@@ -24,4 +31,10 @@ class SetSP(
         val message = " save to sp args $args, value $int"
         MessageLog.log(message)
     }
+
+    fun putToSp(args: String, long: Long) {
+        spEditor.putLong(args,long)
+        spCommit()
+    }
+
 }
