@@ -13,6 +13,7 @@ import com.chico.time_tracker.sp.SetSP
 import com.chico.time_tracker.utils.MessageLog
 import com.chico.time_tracker.utils.parseDateFromMillisDdMmYyyy
 import com.chico.time_tracker.utils.parseTimeFromMillisHhMm
+import com.chico.time_tracker.utils.parseTimeToMillisHhMm
 
 class NewEntryViewModel(
     private val app: Application
@@ -25,9 +26,11 @@ class NewEntryViewModel(
         ConstantsNewEntry.ARGS_NEW_ENTRY_FRAGMENT_START_WORKING_TIME_INT
     private val argsEndWorkingTime: String =
         ConstantsNewEntry.ARGS_NEW_ENTRY_FRAGMENT_END_WORKING_TIME_INT
-    private val argsMoneyPerHour: String = ConstantsNewEntry.ARGS_NEW_ENTRY_FRAGMENT_MONEY_PER_HOUR_INT
+    private val argsMoneyPerHour: String =
+        ConstantsNewEntry.ARGS_NEW_ENTRY_FRAGMENT_MONEY_PER_HOUR_INT
     private val argsAddress: String = ConstantsNewEntry.ARGS_NEW_ENTRY_FRAGMENT_ADDRESS_STRING
-    private val argsDescription: String = ConstantsNewEntry.ARGS_NEW_ENTRY_FRAGMENT_DESCRIPTION_STRING
+    private val argsDescription: String =
+        ConstantsNewEntry.ARGS_NEW_ENTRY_FRAGMENT_DESCRIPTION_STRING
 
     private val sp = app.getSharedPreferences(spName, MODE_PRIVATE)
     private val spEditor = sp.edit()
@@ -96,12 +99,20 @@ class NewEntryViewModel(
     }
 
     private fun saveWorkingTimeToSp(workingTime: WorkingTime) {
-        setSP.putToSp(argsMoneyPerHour,workingTime.moneyPerHour)
-        setSP.putToSp(argsDate,workingTime.date)
+        setSP.putToSp(argsMoneyPerHour, workingTime.moneyPerHour)
+        setSP.putToSp(argsDate, workingTime.date)
         setSP.putToSp(argsStartWorkingTime, workingTime.startTime)
         setSP.putToSp(argsEndWorkingTime, workingTime.endTime)
         setSP.putToSp(argsAddress, workingTime.address.toString())
         setSP.putToSp(argsDescription, workingTime.description.toString())
+    }
+
+    fun getEndTimeInt(): Int {
+        return _startTime.value?.parseTimeToMillisHhMm()?.toInt() ?: 0
+    }
+
+    fun getStartTime(): Int {
+        return _startTime.value?.parseTimeToMillisHhMm()?.toInt() ?: 0
     }
 
 }

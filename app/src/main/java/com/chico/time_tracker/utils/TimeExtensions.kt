@@ -15,7 +15,7 @@ fun String.parseDateToMillisDdMmYyyy(pattern: String = "dd.mm.yyyy"):Long{
     return formatter.parse(this).time
 }
 
-fun String.parseTimeToMillisHhMm(pattern: String = "hh.mm"):Long{
+fun String.parseTimeToMillisHhMm(pattern: String = "hh:mm"):Long{
     val formatter = SimpleDateFormat(pattern, Locale.getDefault())
     return formatter.parse(this).time
 }
@@ -25,7 +25,7 @@ fun Long.parseDateTimeFromMillisYyyyMmDdHhMm(pattern: String = "yyyy.MM.dd HH:mm
     return formatter.format(this)
 }
 
-fun Long.parseTimeFromMillisHhMm(pattern: String = "HH.mm"):String{
+fun Long.parseTimeFromMillisHhMm(pattern: String = "HH:mm"):String{
     val formatter = SimpleDateFormat(pattern)
     return formatter.format(this)
 }

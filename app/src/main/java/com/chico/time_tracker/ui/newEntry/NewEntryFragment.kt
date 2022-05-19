@@ -10,6 +10,7 @@ import com.chico.time_tracker.databinding.FragmentNewEntryBinding
 import com.chico.time_tracker.db.entity.WorkingTime
 import com.chico.time_tracker.utils.MessageLog
 import com.chico.time_tracker.utils.parseDateToMillisDdMmYyyy
+import com.chico.time_tracker.utils.parseTimeFromMillisHhMm
 import com.chico.time_tracker.utils.parseTimeToMillisHhMm
 
 class NewEntryFragment : Fragment() {
@@ -38,25 +39,23 @@ class NewEntryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        setDefaultValuesWhenStartToUI()
-
-        with(newEntryViewModel){
-            moneyPerHour.observe(viewLifecycleOwner){
+        with(newEntryViewModel) {
+            moneyPerHour.observe(viewLifecycleOwner) {
                 binding.moneyPerHourEditText.setText(it.toString())
             }
             date.observe(viewLifecycleOwner) {
                 binding.workDateTextView.text = it
             }
-            startTime.observe(viewLifecycleOwner){
+            startTime.observe(viewLifecycleOwner) {
                 binding.startTimeTextView.text = it
             }
-            endTime.observe(viewLifecycleOwner){
+            endTime.observe(viewLifecycleOwner) {
                 binding.endTimeTextView.text = it
             }
-            address.observe(viewLifecycleOwner){
+            address.observe(viewLifecycleOwner) {
                 binding.addressEditText.setText(it.toString())
             }
-            description.observe(viewLifecycleOwner){
+            description.observe(viewLifecycleOwner) {
                 binding.description.setText(it.toString())
             }
         }
@@ -74,17 +73,17 @@ class NewEntryFragment : Fragment() {
         }
     }
 
-    private fun setDefaultValuesWhenStartToUI() {
-        binding.moneyPerDayTextView.text = "25"
-        binding.workDateTextView.text = "16.05.2022"
-        binding.startTimeTextView.text = "6.00"
-        binding.endTimeTextView.text = "18.00"
-        binding.workHoursInDayTextView.text = "12"
-        binding.moneyPerDayTextView.text = "300"
-        //        binding.moneyPerDayTextView.setText(
-//            binding.moneyPerHourEditText.text.toString().toInt() *
-//                    binding.workHoursInDayTextView.text.toString().toInt()
-//        ).toString()
+    override fun onStart() {
+        super.onStart()
+        calculateUiValues()
+    }
+
+    private fun calculateUiValues() {
+
+        binding.workHoursInDayTextView.text =
+            (newEntryViewModel.getEndTimeInt() - newEntryViewModel.getStartTime()).toLong()
+                .parseTimeFromMillisHhMm()
+
     }
 
     private fun getWorkingTime(): WorkingTime {
@@ -92,11 +91,11 @@ class NewEntryFragment : Fragment() {
             date = binding.workDateTextView.text.toString().parseDateToMillisDdMmYyyy(),
             startTime = binding.startTimeTextView.text.toString().parseTimeToMillisHhMm().toInt(),
             endTime = binding.endTimeTextView.text.toString().parseTimeToMillisHhMm().toInt(),
-            workHoursInDay = binding.workHoursInDayTextView.text.toString().toInt(),
+            workHoursInDay = binding.workHoursInDayTextView.text.toString().parseTimeToMillisHhMm().toInt(),
             moneyPerHour = binding.moneyPerHourEditText.text.toString().toInt(),
             moneyPerDay = binding.moneyPerDayTextView.text.toString().toInt(),
-            address = null,
-            description = null,
+            address = binding.addressEditText.text.toString(),
+            description = binding.description.text.toString(),
             coordinates = null
         )
     }
